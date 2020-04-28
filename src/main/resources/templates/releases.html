@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+    <title>Trackzilla Releases</title>
+</head>
+<body>
+<div class="container">
+    <div th:insert="fragments/navbar.html"> </div>
+
+    <div class="jumbotron">
+        <h3>Releases</h3>
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+            	<th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="item : ${releases}">
+            	<td>
+            		<a th:href="@{/releases/edit/{Id}(Id = ${item.id})}" >
+			          <span class="glyphicon glyphicon-pencil"></span>
+			        </a>
+		        	<!-- <form th:action="@{/releases/edit}">
+		        		<button type="submit" class="btn btn-default btn-sm" th:name="releaseId" th:value="${item.id}">
+		          			<span class="glyphicon glyphicon-pencil"></span>
+		        		</button>
+		        	</form> -->
+		        </td>
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.releaseDate}"></td>
+                <td th:text="${item.description}"></td>
+                <td>
+			<!-- <a href="/applications/delete" >
+  	          <span class="glyphicon glyphicon-trash"></span>
+  	        </a> -->
+  	        <a th:href="@{/releases/delete/{Id}(Id = ${item.id})}" >
+	          <span class="glyphicon glyphicon-trash"></span>
+	        </a>
+  	        <!-- <form th:action="@{/releases/delete}">
+  	        	<button type="submit" class="btn btn-default btn-sm" th:name="releaseId" th:value="${item.id}">
+          			<span class="glyphicon glyphicon-trash"></span> Trash
+        		</button> -->
+  	        	<!-- <button type="submit" class="glyphicon glyphicon-trash" th:name="action" th:value="${item.id}"></button> -->
+			</form>
+        </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
