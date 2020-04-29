@@ -3,7 +3,7 @@ pipeline {
     agent any
 
 	tools{
-		maven "Local Maven"
+		maven "Maven-3.6.3"
 		jdk "JDK"
 	}
 
@@ -11,8 +11,8 @@ pipeline {
 
         stage ('Build') {
             steps {
-            withMaven(maven: "Local Maven") {
-               sh 'mvn clean package'
+            withMaven(maven: 'Maven-3.6.3') {
+               bat 'mvn clean package'
                }
             }
         }
@@ -25,8 +25,8 @@ pipeline {
                                   usernameVariable: 'USERNAME',
                                   passwordVariable: 'PASSWORD']]) {
 
-                    sh '/usr/local/bin/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD'
-                    sh '/usr/local/bin/cf push'
+                    bat 'C:/Users/anamdey/AppData/Roaming/CloudFoundry/cf login -a http://api.run.pivotal.io -u anamitradey.ece@gmail.com -p Ana@1117'
+                    bat 'C:/Users/anamdey/AppData/Roaming/CloudFoundry/cf push'
                 }
             }
 
