@@ -6,12 +6,14 @@ pipeline {
 		maven "Local Maven"
 		jdk "JDK"
 	}
-	
+
     stages {
 
         stage ('Build') {
             steps {
-              sh 'mvn clean package'
+            withMaven(maven: "Local Maven") {
+               sh 'mvn clean package'
+               }
             }
         }
 
