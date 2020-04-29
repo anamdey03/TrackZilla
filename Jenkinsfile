@@ -2,13 +2,14 @@ pipeline {
 
     agent any
 
+	tools {
+        maven 'maven_3.5.0' 
+    }
     stages {
 
         stage ('Build') {
             steps {
-                withMaven(maven: 'maven_3_5_0') {
-                    sh 'mvn clean package'
-                }
+              sh 'mvn clean package'
             }
         }
 
