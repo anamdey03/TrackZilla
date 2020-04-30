@@ -3,4 +3,4 @@ applications:
 - name: trackzilla
   instances: 1
   memory: 800m
-  path: target/TrackZilla-0.0.1-SNAPSHOT.jar
+  path: target/TrackZilla-1.0.0-RELEASE.jar

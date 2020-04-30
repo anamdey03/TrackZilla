@@ -16,6 +16,12 @@ pipeline {
                }
             }
         }
+        
+        stage('Upload Jar to Nexus') {
+        	steps {
+        		bat 'mvn clean deploy'
+        	}
+        }
 
         stage ('Deploy') {
             steps {
