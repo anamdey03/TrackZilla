@@ -23,21 +23,6 @@ pipeline {
         	}
         }
 
-        stage ('Deploy') {
-            steps {
-
-                withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : 'PCF',
-                                  usernameVariable: 'USERNAME',
-                                  passwordVariable: 'PASSWORD']]) {
-                                  
-                    bat 'C:/Users/anamdey/AppData/Roaming/CloudFoundry/cf login -a http://api.run.pivotal.io -u ' + USERNAME + ' -p ' +PASSWORD
-                    bat 'C:/Users/anamdey/AppData/Roaming/CloudFoundry/cf push'
-                }
-            }
-
-        }
-
     }
 
 }
